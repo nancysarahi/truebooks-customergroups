@@ -58,7 +58,37 @@ category:
     }
 </style>
 
-<!-- If statement going through conditions for customer group name  -->
+<!-- 
+    This can be the JQuery solution - probably can optimize way more than this to avoid repeating the same script per conditional.
+    Unable to determine a way to avoid the brief moment where all products appear and then hide, need to re-work it 
+-->
+<!-- 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+{{#if customer_group_name '===' 'Students'}}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".product:nth-child(2n+1)").hide();
+    });
+</script>
+{{else if customer_group_name '===' 'Parents'}}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".product:nth-child(1n+2)").hide();
+    });
+</script>
+{{else if customer_group_name '===' 'Teachers'}}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".product:nth-child(-n+2)").hide();
+    });
+</script>
+{{/if}}
+
+-->
+
+<!-- If statement going through conditions for customer group name with CSS -->
 
 {{#if customer_group_name '===' 'Teachers'}}
 <style>
